@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="1"
+    android:name="com.example.myunito.CalendarMain">
+
+    <TextView
+        android:id="@+id/calendario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calendario"
+        android:textColor="#FF0000"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="50dp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"/>
+
+    <TableRow
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:text="Giorno"
+            android:textSize="25dp"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="2dp"/>
+
+        <TextView
+            android:text="Lezione"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="2dp"/>
+
+        <TextView
+            android:text="Docente"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="2dp"/>
+
+        <TextView
+            android:text=""
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:textAlignment="center"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="2dp"/>
+
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@android:color/black"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"/>
+
+    <TableRow android:id="@+id/tableRow">
+
+        <TextView
+            android:text="Lunedì"
+            android:textSize="17dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="Android"
+            android:textSize="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="M. Segnan"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+
+        <Button
+            android:id="@+id/lunedi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prenota"
+            android:textSize="8sp"
+            android:layout_centerHorizontal="true" />
+
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@android:color/black"
+        android:layout_height="1sp"
+        android:layout_marginBottom="0dp"/>
+
+    <TableRow android:orientation="vertical">
+
+        <TextView
+            android:text="Martedì"
+            android:textSize="17dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="Javascript"
+            android:textSize="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="C. Gena"
+            android:textSize="17dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+
+        <Button
+            android:id="@+id/martedi"
+            android:layout_height="wrap_content"
+            android:text="Prenota"
+            android:textSize="8sp" />
+
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@android:color/black"
+        android:layout_height="1sp"
+        android:layout_marginBottom="0dp"/>
+
+    <TableRow>
+
+        <TextView
+            android:text="Mercoledì"
+            android:textSize="17dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="PHP"
+            android:textSize="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="L. Console"
+            android:textSize="17dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+
+        <Button
+            android:id="@+id/mercoledi"
+            android:layout_height="wrap_content"
+            android:text="Prenota"
+            android:textSize="8sp" />
+
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@android:color/black"
+        android:layout_height="1sp"
+        android:layout_marginBottom="0dp"/>
+
+    <TableRow>
+
+        <TextView
+            android:text="Giovedì"
+            android:textSize="17dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="Python"
+            android:textSize="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="M. Segnan"
+            android:textSize="17dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+
+        <Button
+            android:id="@+id/giovedi"
+            android:layout_height="wrap_content"
+            android:text="Prenota"
+            android:textSize="8sp" />
+
+    </TableRow>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@android:color/black"
+        android:layout_height="1sp"
+        android:layout_marginBottom="0dp"/>
+
+    <TableRow>
+
+        <TextView
+            android:text="Venerdì"
+            android:textSize="17dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="Sociologia"
+            android:textSize="17dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+        <TextView
+            android:text="L. Paccagnella"
+            android:textSize="17dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content" />
+
+
+        <Button
+            android:id="@+id/venerdi"
+            android:layout_height="wrap_content"
+            android:text="Prenota"
+            android:textSize="8sp" />
+
+    </TableRow>
+
+
+    <TextView
+        android:id="@+id/testoLezioniPrenotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Elenco lezioni prenotate:"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/elencoLezioniPrenotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="20dp" />
+
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:onClick="logout"
+        android:text="Logout" />
+</TableLayout>
+
+
+
+
+
+
