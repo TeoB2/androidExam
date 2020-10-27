@@ -17,7 +17,9 @@
         android:layout_centerHorizontal="true"
         android:textSize="50dp"
         android:textAlignment="center"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
+        android:textStyle="bold"/>
 
     <TableRow
         android:layout_marginTop="10dp">
@@ -290,6 +292,7 @@
         android:id="@+id/elencoLezioniPrenotate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text=""
         android:textAlignment="center"
         android:textSize="20dp" />
@@ -300,10 +303,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/button"
         android:onClick="logout"
-        android:text="Logout" />
+        android:text="Logout"
+        android:textColor="#ffffff" />
 </TableLayout>
 
 

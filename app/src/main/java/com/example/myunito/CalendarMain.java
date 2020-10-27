@@ -109,8 +109,6 @@ public class CalendarMain extends Activity
 
                 prenotaDisiscriviLezione("Venerdì", venerdi);
 
-                Toast.makeText(CalendarMain.this,Arrays.toString(lezioniPrenotateArray),Toast.LENGTH_LONG).show();
-
                 //mostra i giorni delle lezioni prenotate
                 mostraLezioniPrenotate();
             }
@@ -192,29 +190,32 @@ public class CalendarMain extends Activity
             //cambio il background e il testo del bottone corrispondente alla lezione
             idButton.setText("Disdici");
             idButton.setBackgroundColor(0xFFB30000);
-
-            //mostro il messaggio che si è prenotato alla lezione
-            Toast.makeText(CalendarMain.this,"Ti sei prenotato alla lezione di " + giornoPrenotato, Toast.LENGTH_LONG).show();
         }
         else if(Arrays.asList(lezioniPrenotateArray).contains(giornoPrenotato.trim()))
         {
-            for (int i = 0; i < lezioniPrenotateArray.length; i++)
+            //inizializzo un array temporaneo delle lezioni prenotate
+            String lezioniPrenotateArrayTMP[] = {};
+
+            //ciclo le lezioni prenotate
+            for (String lezionePrenotata : lezioniPrenotateArray)
             {
-                if(lezioniPrenotateArray[i] != giornoPrenotato)
+                //se la lezione prenotata è quella che si vuole rimuovere la metto come stringa vuota
+                String lezioniPrenotateRimanenti = lezionePrenotata.replace(giornoPrenotato,"");
+
+                //se è stringa vuota non aggiungi la lezione prenotata all'array temporaneo in modo da escluderlo
+                if(!lezioniPrenotateRimanenti.isEmpty())
                 {
                     lezioniPrenotateArrayTMP = Arrays.copyOf(lezioniPrenotateArrayTMP, lezioniPrenotateArrayTMP.length + 1);
-                    lezioniPrenotateArrayTMP[lezioniPrenotateArrayTMP.length - 1] = giornoPrenotato;
+                    lezioniPrenotateArrayTMP[lezioniPrenotateArrayTMP.length - 1] = lezioniPrenotateRimanenti;
                 }
             }
 
+            //associo l'array temporaneo all'array delle lezioni prenotate in questo modo non ci sarà la lezione tolta
             lezioniPrenotateArray = lezioniPrenotateArrayTMP;
 
             //cambio il background e il testo del bottone corrispondente alla lezione
             idButton.setText("Prenota");
             idButton.setBackgroundColor(0xFF7FFF00);
-
-            //mostro il messaggio che ha disdetto la prenotazione
-            Toast.makeText(CalendarMain.this,"Hai disdetto la prenotazione alla lezione di " + giornoPrenotato, Toast.LENGTH_LONG).show();
         }
     }
 }
