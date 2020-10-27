@@ -15,12 +15,11 @@ import androidx.annotation.RequiresApi;
 public class CalendarMain extends Activity
 {
     //dichiarazione delle variabili
-    TextView lezioniPrenotate;
-    public String giorniLezione = "";
     Intent logout;
 
     //array con le lezioni prenotate da una matricola
-    String[] lezioniPrenotateArray = {};
+    String lezioniPrenotateArray[] = {};
+    String lezioniPrenotateArrayTMP[] = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,20 +46,11 @@ public class CalendarMain extends Activity
             @Override
             public void onClick(View v)
             {
-                //mostra il messaggio che è stato premuto il bottone lunedi
-                Toast.makeText(CalendarMain.this,"Ti sei prenotato alla lezione di Lunedì", Toast.LENGTH_LONG).show();
 
                 prenotaDisiscriviLezione("Lunedì", lunedi);
 
-                //concatena il giorno alla stringa
-                giorniLezione = giorniLezione + "\nLunedì";
-
-                //lo stampa sullo schermo
-                mostraLezioniPrenotate("Lunedì");
-
-                //disattiva il bottone per prenotarsi alla lezione di lunedì e cambia il testo in "prenotata"
-                lunedi.setText("X");
-                lunedi.setBackgroundColor(0xFFB30000);
+                //mostra i giorni delle lezioni prenotate
+                mostraLezioniPrenotate();
             }
         });
 
@@ -71,20 +61,11 @@ public class CalendarMain extends Activity
             @Override
             public void onClick(View v)
             {
-                //mostra il messaggio che è stato premuto il bottone martedi
-                Toast.makeText(CalendarMain.this,"Ti sei prenotato alla lezione di Martedì",Toast.LENGTH_LONG).show();
 
                 prenotaDisiscriviLezione("Martedì", martedi);
 
-                //concatena il giorno alla stringa
-                giorniLezione = giorniLezione + "\nMartedì";
-
-                //lo stampa sullo schermo
-                mostraLezioniPrenotate(giorniLezione);
-
-                //disattiva il bottone per prenotarsi alla lezione di lunedì e cambia il testo in "prenotata"
-                martedi.setEnabled(false);
-                martedi.setText("Prenotata");
+                //mostra i giorni delle lezioni prenotate
+                mostraLezioniPrenotate();
             }
         });
 
@@ -95,20 +76,11 @@ public class CalendarMain extends Activity
             @Override
             public void onClick(View v)
             {
-                //mostra il messaggio che è stato premuto il bottone mercoledi
-                Toast.makeText(CalendarMain.this,"Ti sei prenotato alla lezione di Mercoledì",Toast.LENGTH_LONG).show();
 
                 prenotaDisiscriviLezione("Mercoledì", mercoledi);
 
-                //concatena il giorno alla stringa
-                giorniLezione = giorniLezione + "\nMercoledì";
-
-                //lo stampa sullo schermo
-                mostraLezioniPrenotate(giorniLezione);
-
-                //disattiva il bottone per prenotarsi alla lezione di lunedì e cambia il testo in "prenotata"
-                mercoledi.setEnabled(false);
-                mercoledi.setText("Prenotata");
+                //mostra i giorni delle lezioni prenotate
+                mostraLezioniPrenotate();
             }
         });
 
@@ -119,20 +91,11 @@ public class CalendarMain extends Activity
             @Override
             public void onClick(View v)
             {
-                //mostra il messaggio che è stato premuto il bottone giovedi
-                Toast.makeText(CalendarMain.this,"Ti sei prenotato alla lezione di Giovedì",Toast.LENGTH_LONG).show();
 
                 prenotaDisiscriviLezione("Giovedì", giovedi);
 
-                //concatena il giorno alla stringa
-                giorniLezione = giorniLezione + "\nGiovedì";
-
-                //lo stampa sullo schermo
-                mostraLezioniPrenotate(giorniLezione);
-
-                //disattiva il bottone per prenotarsi alla lezione di lunedì e cambia il testo in "prenotata"
-                giovedi.setEnabled(false);
-                giovedi.setText("Prenotata");
+                //mostra i giorni delle lezioni prenotate
+                mostraLezioniPrenotate();
             }
         });
 
@@ -143,45 +106,65 @@ public class CalendarMain extends Activity
             @Override
             public void onClick(View v)
             {
-                //mostra il messaggio che è stato premuto il bottone venerdi
-                Toast.makeText(CalendarMain.this,"Ti sei prenotato alla lezione di Venerdì",Toast.LENGTH_LONG).show();
 
                 prenotaDisiscriviLezione("Venerdì", venerdi);
 
                 Toast.makeText(CalendarMain.this,Arrays.toString(lezioniPrenotateArray),Toast.LENGTH_LONG).show();
 
-                //concatena il giorno alla stringa
-                giorniLezione = giorniLezione + "\nVenerdì";
-
-                //lo stampa sullo schermo
-                mostraLezioniPrenotate(giorniLezione);
-
-                //disattiva il bottone per prenotarsi alla lezione di lunedì e cambia il testo in "prenotata"
-                venerdi.setEnabled(false);
-                venerdi.setText("Prenotata");
+                //mostra i giorni delle lezioni prenotate
+                mostraLezioniPrenotate();
             }
         });
 
-        //entra nel metodo passandogli la stringa giorniLezione
-        mostraLezioniPrenotate(giorniLezione);
+        //mostra i giorni delle lezioni prenotate
+        mostraLezioniPrenotate();
     }
 
-    //se la stringa giorniLezione è vuota mostra un messaggio che non è stata effettuata nessuna prenotazione
-    //altrimenti mostra la stringa con tutti i giorni di lezioni prenotati
-    public void mostraLezioniPrenotate(String giorniLezione)
+
+    //se la l'array lezioniPrenotateArray è vuoto mostra un messaggio che non è stata effettuata nessuna prenotazione
+    //altrimenti mostra le lezioni prenotate mediante un ciclo for
+    public void mostraLezioniPrenotate()
     {
         TextView elencoLezioniPrenotate = (TextView) findViewById(R.id.elencoLezioniPrenotate);
 
-        //controllo se la stringa è vuota
-        if(giorniLezione.isEmpty())
+        String giorniLezionePrenotati = "";
+        String divisioneGiorniLezionePrenotati = "";
+
+        //se non si è prenotati a nessuna lezione mostra un messaggio
+        if(lezioniPrenotateArray.length == 0)
         {
-            giorniLezione = "Nessuna prenotazione";
+            giorniLezionePrenotati = "Nessuna lezione prenotata";
+        }
+        else
+        {
+            for (int i = 0; i < lezioniPrenotateArray.length; i++)
+            {
+                //controllo se non è vuoto il valore
+                if(lezioniPrenotateArray[i].isEmpty())
+                {
+                    continue;
+                }
+
+                //se è l'ultimo elemento mette la congiungione e, altrimenti la virgola (se sono presenti ppiù prenotazioni)
+                if(i == lezioniPrenotateArray.length - 1 && i > 0)
+                {
+                    divisioneGiorniLezionePrenotati = " e ";
+                }
+                else if(i > 0)
+                {
+                    divisioneGiorniLezionePrenotati = ", ";
+                }
+
+                giorniLezionePrenotati = giorniLezionePrenotati + divisioneGiorniLezionePrenotati + lezioniPrenotateArray[i];
+            }
         }
 
-        elencoLezioniPrenotate.setText(giorniLezione);
+        //mostra le lezizoni prenotate
+        elencoLezioniPrenotate.setText(giorniLezionePrenotati);
     }
 
-    //effettua il logout e torna all'attività precedente
+
+    //effettua il logout e torna all'attività precedente di login
     public void logout(View view)
     {
         logout = new Intent(CalendarMain.this, MainActivity.class);
@@ -192,6 +175,7 @@ public class CalendarMain extends Activity
         startActivity(logout);
     }
 
+
     //controllo se una lezione è già stata prenotata o no in modo da far prenotare l'utente o togliere la prenotazione
     public void prenotaDisiscriviLezione(String giornoPrenotato, Button idButton)
     {
@@ -201,24 +185,36 @@ public class CalendarMain extends Activity
         }
         else if(!Arrays.asList(lezioniPrenotateArray).contains(giornoPrenotato.trim()))
         {
+            //inserisco nell'array il giorno prenotato se non è presente
             lezioniPrenotateArray = Arrays.copyOf(lezioniPrenotateArray, lezioniPrenotateArray.length + 1);
             lezioniPrenotateArray[lezioniPrenotateArray.length - 1] = giornoPrenotato;
 
-            idButton.setText("X");
+            //cambio il background e il testo del bottone corrispondente alla lezione
+            idButton.setText("Disdici");
             idButton.setBackgroundColor(0xFFB30000);
+
+            //mostro il messaggio che si è prenotato alla lezione
+            Toast.makeText(CalendarMain.this,"Ti sei prenotato alla lezione di " + giornoPrenotato, Toast.LENGTH_LONG).show();
         }
-        /*else
+        else if(Arrays.asList(lezioniPrenotateArray).contains(giornoPrenotato.trim()))
         {
-            for(int i = 0; i < lezioniPrenotateArray.length; i++)
+            for (int i = 0; i < lezioniPrenotateArray.length; i++)
             {
-                if(giornoPrenotato == lezioniPrenotateArray[i])
+                if(lezioniPrenotateArray[i] != giornoPrenotato)
                 {
-                    lezioniPrenotateArray = removeTheElement(lezioniPrenotateArray, giornoPrenotato);
+                    lezioniPrenotateArrayTMP = Arrays.copyOf(lezioniPrenotateArrayTMP, lezioniPrenotateArrayTMP.length + 1);
+                    lezioniPrenotateArrayTMP[lezioniPrenotateArrayTMP.length - 1] = giornoPrenotato;
                 }
             }
 
-            idButton.setText("X");
-            idButton.setBackgroundColor(0xFFB30000);
-        }*/
+            lezioniPrenotateArray = lezioniPrenotateArrayTMP;
+
+            //cambio il background e il testo del bottone corrispondente alla lezione
+            idButton.setText("Prenota");
+            idButton.setBackgroundColor(0xFF7FFF00);
+
+            //mostro il messaggio che ha disdetto la prenotazione
+            Toast.makeText(CalendarMain.this,"Hai disdetto la prenotazione alla lezione di " + giornoPrenotato, Toast.LENGTH_LONG).show();
+        }
     }
 }

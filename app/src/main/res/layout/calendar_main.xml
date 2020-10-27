@@ -98,6 +98,7 @@
             android:layout_height="wrap_content"
             android:text="Prenota"
             android:textSize="8sp"
+            android:background="#7FFF00"
             android:layout_centerHorizontal="true" />
 
     </TableRow>
@@ -136,9 +137,12 @@
 
         <Button
             android:id="@+id/martedi"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prenota"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            android:background="#7FFF00"
+            android:layout_centerHorizontal="true" />
 
     </TableRow>
 
@@ -176,9 +180,12 @@
 
         <Button
             android:id="@+id/mercoledi"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prenota"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            android:background="#7FFF00"
+            android:layout_centerHorizontal="true" />
 
     </TableRow>
 
@@ -216,9 +223,12 @@
 
         <Button
             android:id="@+id/giovedi"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prenota"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            android:background="#7FFF00"
+            android:layout_centerHorizontal="true" />
 
     </TableRow>
 
@@ -256,9 +266,12 @@
 
         <Button
             android:id="@+id/venerdi"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Prenota"
-            android:textSize="8sp" />
+            android:textSize="8sp"
+            android:background="#7FFF00"
+            android:layout_centerHorizontal="true" />
 
     </TableRow>
 
