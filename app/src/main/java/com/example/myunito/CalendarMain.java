@@ -143,7 +143,7 @@ public class CalendarMain extends Activity
                     continue;
                 }
 
-                //se è l'ultimo elemento mette la congiungione e, altrimenti la virgola (se sono presenti ppiù prenotazioni)
+                //se è l'ultimo elemento mette la congiungione e, altrimenti la virgola (se sono presenti più prenotazioni)
                 if(i == lezioniPrenotateArray.length - 1 && i > 0)
                 {
                     divisioneGiorniLezionePrenotati = " e ";
